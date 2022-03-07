@@ -1,10 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import testIndex from "../components/testFolder/index.vue";
 const routes = [
+    //only "/" works.
     {
         path: "/",
-        component: testIndex,
+        component: () => import("../views/Index"),
+    },
+    {
+        path: "/register",
+        component: () => import("../views/Register"),
+        name: "Register",
     },
 ];
 const router = createRouter({

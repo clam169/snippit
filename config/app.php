@@ -141,6 +141,8 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -192,6 +194,9 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // ...
+        'JWTAuth'    => Tymon\JWTAuth\Facades\JWTAuth::class, 
+'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+
     ])->toArray(),
 
 ];
