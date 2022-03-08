@@ -11,6 +11,11 @@ const routes = [
         component: () => import("../views/Register"),
         name: "Register",
     },
+    {
+        path: "/card",
+        component: () => import("../../components/NewSnippit"),
+        name: "NewSnippit",
+    },
 ];
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
