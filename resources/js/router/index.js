@@ -12,7 +12,7 @@ const routes = [
         name: "Register",
     },
     {
-        path: "/card",
+        path: "/new",
         component: () => import("../../components/NewSnippit"),
         name: "NewSnippit",
     },

@@ -19672,7 +19672,7 @@ var routes = [//only "/" works.
   },
   name: "Register"
 }, {
-  path: "/card",
+  path: "/new",
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_components_NewSnippit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../../components/NewSnippit */ "./resources/components/NewSnippit.vue"));
   },
@@ -19704,7 +19704,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n* {\n    margin: 0;\n    padding: 0;\n}\nbody {\n    background-color: #232323;\n}\ncolor {\n    color: #ffffff;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n* {\n    margin: 0 auto;\n    padding: 0;\n\n    /* Typography */\n    font-family: 'Open Sans', sans-serif;\n    color: #ffffff;\n}\nbody {\n    background-color: #232323;\n}\ncolor {\n    color: #ffffff;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

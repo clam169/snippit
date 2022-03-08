@@ -65,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\n    /* Position & Layout */\n    display: flex;\n    flex-direction: column;\n    align-content: center;\n    align-items: center;\n\n    /* Box Model */\n    margin: 2em;\n    border-radius: 15px;\n    width: 30em;\n    padding: 1em;\n\n    /* Background */\n    background-color: #313131;\n\n    /* Typography */\n    font-family: 'Open Sans', sans-serif;\n    color: #ffffff;\n}\n.main-card img {\n    margin: 1em;\n    height: 5em;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\n    /* Position & Layout */\n    display: flex;\n    flex-direction: column;\n    align-content: center;\n    align-items: center;\n\n    /* Box Model */\n    margin: 2em;\n    border-radius: 15px;\n    width: 28em;\n    padding: 1.5em;\n\n    /* Background */\n    background-color: #313131;\n}\n.main-card img {\n    margin: 1em;\n    height: 5.5em;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

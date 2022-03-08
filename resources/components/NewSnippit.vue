@@ -31,20 +31,16 @@ export default {
     /* Box Model */
     margin: 2em;
     border-radius: 15px;
-    width: 30em;
-    padding: 1em;
+    width: 28em;
+    padding: 1.5em;
 
     /* Background */
     background-color: #313131;
-
-    /* Typography */
-    font-family: 'Open Sans', sans-serif;
-    color: #ffffff;
 }
 
 .main-card img {
     margin: 1em;
-    height: 5em;
+    height: 5.5em;
 }
 
 </style>

@@ -6,8 +6,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 * {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+
+    /* Typography */
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
 }
 
 body {
