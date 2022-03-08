@@ -204,7 +204,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card {\n    width: 20.5em;\n    height: 20.5em;\n    margin: 1em;\n    border-style: solid;\n    border-radius: 15px;\n}\n.note-card h2 {\n    margin-top: 1em;\n}\n.content {\n    width: 80%;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card {\n        width: 20.5em;\n        height: 20.5em;\n        margin: 1em;\n        border-style: solid;\n        border-radius: 15px;\n}\n.note-card h2 {\n        margin-top: 1em;\n}\n.content {\n        width: 80%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -227,7 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\n    /* Position & Layout */\n    display: flex;\n    flex-direction: column;\n    align-content: center;\n    align-items: center;\n\n    /* Box Model */\n    margin: 2em;\n    border-radius: 15px;\n    width: 28em;\n    padding: 1.5em;\n\n    /* Background */\n    background-color: #313131;\n}\n.main-card img {\n    margin: 1em;\n    height: 5.5em;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\n        /* Position & Layout */\n        display: flex;\n        flex-direction: column;\n        align-content: center;\n        align-items: center;\n\n        /* Box Model */\n        margin: 2em;\n        border-radius: 15px;\n        width: 28em;\n        padding: 1.5em;\n\n        /* Background */\n        background-color: #313131;\n}\n.main-card img {\n        margin: 1em;\n        height: 5.5em;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -250,7 +250,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container {\n    width: 80%;\n}\n.nav-container {\n    text-align: right;\n}\n.nav-container img {\n    width: 1.5em;\n    margin: 1em;\n}\n.header-container {\n    display: flex;\n    justify-content: center;\n    margin-top: 2em;\n}\n.main-container {\n    display: flex;\n    justify-content: center;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container {\n        width: 80%;\n}\n.nav-container {\n        text-align: right;\n}\n.nav-container img {\n        width: 1.5em;\n        margin: 1em;\n}\n.header-container {\n        display: flex;\n        justify-content: center;\n        margin-top: 2em;\n}\n.main-container {\n        display: flex;\n        justify-content: center;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

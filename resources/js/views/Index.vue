@@ -17,48 +17,45 @@
 </template>
 
 <script>
-import newSnippit from '../../components/NewSnippit.vue';
-import card from '../../components/Card.vue';
+    import newSnippit from '../../components/NewSnippit.vue';
+    import card from '../../components/Card.vue';
 
-export default {
-    name: 'index',
-    components: {
-        newSnippit,
-        card 
-    },
-}
+    export default {
+        name: 'index',
+        components: {
+            newSnippit,
+            card 
+        },
+    }
 
-// <router-link :to="{ name: 'Register' }">Register</router-link>
-
+    // <router-link :to="{ name: 'Register' }">Register</router-link>
 </script>
 
 
 <style>
+    .container {
+        width: 80%;
+    }
 
-.container {
-    width: 80%;
-}
+    .nav-container {
+        text-align: right;
+    }
 
-.nav-container {
-    text-align: right;
-}
+    .nav-container img {
+        width: 1.5em;
+        margin: 1em;
+    }
 
-.nav-container img {
-    width: 1.5em;
-    margin: 1em;
-}
+    .header-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2em;
+    }
 
-.header-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2em;
-}
-
-.main-container {
-    display: flex;
-    justify-content: center;
-}
-
+    .main-container {
+        display: flex;
+        justify-content: center;
+    }
 </style>
 
 
