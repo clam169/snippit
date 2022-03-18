@@ -36,12 +36,18 @@ __webpack_require__.r(__webpack_exports__);
       imgSrc: ""
     };
   },
+  emits: ["modalChange"],
   mounted: function mounted() {
     if (this.img) {
-      this.imgSrc = URL.createObjectURL(this.img);
+      this.imgSrc = URL.createObjectURL(this.img[0]);
+      this.$refs.imgInput.files = this.img;
     }
   },
-  methods: {}
+  methods: {
+    close: function close() {
+      this.$emit("modalChange", false);
+    }
+  }
 });
 
 /***/ }),
@@ -70,7 +76,7 @@ __webpack_require__.r(__webpack_exports__);
       e.preventDefault();
 
       if (this.id === "snippit") {
-        this.imgFile = e.dataTransfer.files[0];
+        this.imgFile = e.dataTransfer.files;
         e.currentTarget.classList.remove("onFileHover");
         this.$emit("modalChange", this.id);
         this.$emit("imgFile", this.imgFile);
@@ -86,6 +92,9 @@ __webpack_require__.r(__webpack_exports__);
     onLeave: function onLeave(e) {
       e.preventDefault();
       e.currentTarget.classList.remove("onFileHover");
+    },
+    onClick: function onClick(e) {
+      if (this.id === "note") this.$emit("modalChange", "note");
     }
   }
 });
@@ -186,22 +195,102 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "modal"
 };
+var _hoisted_4 = {
+  key: 0
+};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "header"
 }, "New Snippit", -1
 /* HOISTED */
 );
 
-var _hoisted_5 = ["src"];
+var _hoisted_6 = [_hoisted_5];
+var _hoisted_7 = {
+  key: 1
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "header"
+}, "New Note", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = [_hoisted_8];
+var _hoisted_10 = {
+  key: 2
+};
+var _hoisted_11 = ["src"];
+var _hoisted_12 = ["action"];
+var _hoisted_13 = {
+  type: "file",
+  name: "fileUp",
+  id: "fileUp",
+  ref: "imgInput"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "text-input",
+  type: "text",
+  name: "title",
+  id: "title",
+  placeholder: "Title"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  form: "snippit-form",
+  "class": "text-input",
+  name: "content",
+  id: "content",
+  cols: "30",
+  rows: "5",
+  placeholder: "Notes"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "text-input",
+  type: "text",
+  name: "tags",
+  id: "title",
+  placeholder: "Separate tags by commas eg. math, physics"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "submit",
+  type: "submit",
+  value: "New Snippit"
+}, null, -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$props.mode === 'snippit' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, _hoisted_6)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, _hoisted_9)), $props.mode === 'snippit' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "thumbnail",
     src: this.imgSrc,
     alt: "image preview"
   }, null, 8
   /* PROPS */
-  , _hoisted_5)])])], 64
+  , _hoisted_11)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    action: '/new/' + $props.mode,
+    method: "post",
+    id: "snippit-form"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", _hoisted_13, null, 512
+  /* NEED_PATCH */
+  ), _hoisted_14, _hoisted_15, _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.close && $options.close.apply($options, arguments);
+    }),
+    "class": "close"
+  }, " Close "), _hoisted_17])], 8
+  /* PROPS */
+  , _hoisted_12)])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -229,13 +318,16 @@ var _hoisted_3 = {
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-    onDrop: _cache[0] || (_cache[0] = function () {
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.onClick && $options.onClick.apply($options, arguments);
+    }),
+    onDrop: _cache[1] || (_cache[1] = function () {
       return $options.dropFile && $options.dropFile.apply($options, arguments);
     }),
-    onDragleave: _cache[1] || (_cache[1] = function () {
+    onDragleave: _cache[2] || (_cache[2] = function () {
       return $options.onLeave && $options.onLeave.apply($options, arguments);
     }),
-    onDragenter: _cache[2] || (_cache[2] = function () {
+    onDragenter: _cache[3] || (_cache[3] = function () {
       return $options.onHover && $options.onHover.apply($options, arguments);
     }),
     "class": "main-card"
@@ -294,6 +386,9 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   key: 0
 };
+var _hoisted_5 = {
+  key: 1
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_newSnippit = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("newSnippit");
 
@@ -343,10 +438,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     text: "C#"
   })]), _ctx.isModal === 'snippit' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
     mode: "snippit",
+    onModalChange: $options.modalChange,
     img: _ctx.imgFile
   }, null, 8
   /* PROPS */
-  , ["img"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  , ["onModalChange", "img"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.isModal === 'note' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
+    mode: "note",
+    onModalChange: $options.modalChange,
+    img: _ctx.imgFile
+  }, null, 8
+  /* PROPS */
+  , ["onModalChange", "img"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),
@@ -390,7 +492,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay {\n    height: 100vh;\n    width: 100vw;\n    position: absolute;\n    top: 0;\n    left: 0;\n    background-color: black;\n    opacity: 60%;\n}\n.modalContainer {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.modal {\n    background-color: #313131;\n    z-index: 50;\n    padding: 2rem 2rem;\n    border-radius: 5%;\n    height: 70%;\n    width: 40%;\n    overflow: scroll;\n    display: flex;\n    flex-direction: column;\n\n    align-items: center;\n}\n.header {\n    margin-bottom: 24px;\n}\n.thumbnail {\n    max-width: 250px;\n    max-height: 250px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay {\n    height: 100vh;\n    width: 100vw;\n    position: absolute;\n    top: 0;\n    left: 0;\n    background-color: black;\n    opacity: 60%;\n}\n.close {\n    padding: 8px;\n    cursor: pointer;\n    background-color: rgb(141, 87, 87);\n    border: none;\n    border-radius: 5px;\n    margin: 12px 0 0 0;\n    width: 96px;\n}\n.modalContainer {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.modal {\n    background-color: #313131;\n    z-index: 50;\n    padding: 2rem 2rem;\n    border-radius: 5%;\n    width: 40%;\n    overflow: scroll;\n    display: flex;\n    flex-direction: column;\n\n    align-items: center;\n}\n.header {\n    margin-bottom: 24px;\n}\n.thumbnail {\n    max-width: 250px;\n    max-height: 250px;\n}\nform {\n    margin: 36px 0 0 0;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n}\n#fileUp {\n    display: none;\n}\n.text-input {\n    font-size: 14px;\n    resize: none;\n    border-radius: 5px;\n    border: none;\n    color: white;\n    background-color: #222222;\n    width: 80%;\n    margin: 8px auto;\n    padding: 10px;\n}\n.submit {\n    padding: 8px;\n    cursor: pointer;\n    background-color: rgb(96, 145, 130);\n    border: none;\n    border-radius: 5px;\n    margin: 12px 0 0 36px;\n    width: 96px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -413,7 +515,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\n    /* Position & Layout */\n    display: flex;\n    flex-direction: column;\n    align-content: center;\n    align-items: center;\n\n    /* Box Model */\n    margin: 2em;\n    border-radius: 15px;\n    width: 28em;\n    padding: 1.5em;\n\n    /* Background */\n    background-color: #313131;\n}\n.main-card img {\n    margin: 1em;\n    height: 5.5em;\n}\n#imgInput {\n    display: none;\n}\n.onFileHover {\n    background-color: #464646;\n}\n.noPointer {\n    pointer-events: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\n    /* Position & Layout */\n    cursor: pointer;\n    display: flex;\n    flex-direction: column;\n    align-content: center;\n    align-items: center;\n\n    /* Box Model */\n    margin: 2em;\n    border-radius: 15px;\n    width: 28em;\n    padding: 1.5em;\n\n    /* Background */\n    background-color: #313131;\n}\n.main-card img {\n    margin: 1em;\n    height: 5.5em;\n}\n#imgInput {\n    display: none;\n}\n.onFileHover {\n    background-color: #464646;\n}\n.noPointer {\n    pointer-events: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

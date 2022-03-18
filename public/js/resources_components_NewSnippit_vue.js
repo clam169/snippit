@@ -25,7 +25,7 @@ __webpack_require__.r(__webpack_exports__);
       e.preventDefault();
 
       if (this.id === "snippit") {
-        this.imgFile = e.dataTransfer.files[0];
+        this.imgFile = e.dataTransfer.files;
         e.currentTarget.classList.remove("onFileHover");
         this.$emit("modalChange", this.id);
         this.$emit("imgFile", this.imgFile);
@@ -41,6 +41,9 @@ __webpack_require__.r(__webpack_exports__);
     onLeave: function onLeave(e) {
       e.preventDefault();
       e.currentTarget.classList.remove("onFileHover");
+    },
+    onClick: function onClick(e) {
+      if (this.id === "note") this.$emit("modalChange", "note");
     }
   }
 });
@@ -68,13 +71,16 @@ var _hoisted_3 = {
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-    onDrop: _cache[0] || (_cache[0] = function () {
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.onClick && $options.onClick.apply($options, arguments);
+    }),
+    onDrop: _cache[1] || (_cache[1] = function () {
       return $options.dropFile && $options.dropFile.apply($options, arguments);
     }),
-    onDragleave: _cache[1] || (_cache[1] = function () {
+    onDragleave: _cache[2] || (_cache[2] = function () {
       return $options.onLeave && $options.onLeave.apply($options, arguments);
     }),
-    onDragenter: _cache[2] || (_cache[2] = function () {
+    onDragenter: _cache[3] || (_cache[3] = function () {
       return $options.onHover && $options.onHover.apply($options, arguments);
     }),
     "class": "main-card"
@@ -111,7 +117,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\n    /* Position & Layout */\n    display: flex;\n    flex-direction: column;\n    align-content: center;\n    align-items: center;\n\n    /* Box Model */\n    margin: 2em;\n    border-radius: 15px;\n    width: 28em;\n    padding: 1.5em;\n\n    /* Background */\n    background-color: #313131;\n}\n.main-card img {\n    margin: 1em;\n    height: 5.5em;\n}\n#imgInput {\n    display: none;\n}\n.onFileHover {\n    background-color: #464646;\n}\n.noPointer {\n    pointer-events: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\n    /* Position & Layout */\n    cursor: pointer;\n    display: flex;\n    flex-direction: column;\n    align-content: center;\n    align-items: center;\n\n    /* Box Model */\n    margin: 2em;\n    border-radius: 15px;\n    width: 28em;\n    padding: 1.5em;\n\n    /* Background */\n    background-color: #313131;\n}\n.main-card img {\n    margin: 1em;\n    height: 5.5em;\n}\n#imgInput {\n    display: none;\n}\n.onFileHover {\n    background-color: #464646;\n}\n.noPointer {\n    pointer-events: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

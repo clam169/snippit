@@ -32,7 +32,10 @@
             <card img="null" title="Midterm Structure" text="C#" />
         </main>
         <div v-if="isModal === 'snippit'">
-            <modal mode="snippit" :img="imgFile" />
+            <modal mode="snippit" @modalChange="modalChange" :img="imgFile" />
+        </div>
+        <div v-if="isModal === 'note'">
+            <modal mode="note" @modalChange="modalChange" :img="imgFile" />
         </div>
     </div>
 </template>

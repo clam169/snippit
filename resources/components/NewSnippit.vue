@@ -1,5 +1,6 @@
 <template>
     <div
+        @click="onClick"
         @drop="dropFile"
         @dragleave="onLeave"
         @dragenter="onHover"
@@ -23,7 +24,7 @@ export default {
         dropFile(e) {
             e.preventDefault();
             if (this.id === "snippit") {
-                this.imgFile = e.dataTransfer.files[0];
+                this.imgFile = e.dataTransfer.files;
                 e.currentTarget.classList.remove("onFileHover");
                 this.$emit("modalChange", this.id);
                 this.$emit("imgFile", this.imgFile);
@@ -39,6 +40,9 @@ export default {
             e.preventDefault();
             e.currentTarget.classList.remove("onFileHover");
         },
+        onClick(e) {
+            if (this.id === "note") this.$emit("modalChange", "note");
+        },
     },
 };
 </script>
@@ -46,6 +50,7 @@ export default {
 <style>
 .main-card {
     /* Position & Layout */
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-content: center;
