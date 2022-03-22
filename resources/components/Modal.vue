@@ -75,8 +75,8 @@ export default {
 
 <style>
 .overlay {
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -108,10 +108,9 @@ export default {
     padding: 2rem 2rem;
     border-radius: 5%;
     width: 40%;
-    overflow: scroll;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
-
     align-items: center;
 }
 .header {
