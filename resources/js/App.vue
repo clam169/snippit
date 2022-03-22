@@ -11,6 +11,12 @@
 
         /* Typography */
         font-family: 'Open Sans', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
         color: #ffffff;
     }
 
