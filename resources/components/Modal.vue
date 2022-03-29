@@ -108,10 +108,10 @@ export default {
     padding: 2rem 2rem;
     border-radius: 5%;
     width: 40%;
+    max-height: 80%;
     overflow: scroll;
     display: flex;
     flex-direction: column;
-
     align-items: center;
 }
 .header {
