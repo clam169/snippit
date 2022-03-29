@@ -6,8 +6,8 @@
 
         <title>Snippit</title>
 
-        <link href="{{asset('css/app.css')}}" ref="stylesheet">
-        <script type="module" src="{{asset('js/app.js') }}" defer></script>
+        <link href="{{secure_asset('css/app.css')}}" ref="stylesheet">
+        <script type="module" src="{{secure_asset('js/app.js') }}" defer></script>
         
     </head>
     <body>
