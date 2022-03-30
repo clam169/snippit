@@ -122,7 +122,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isModal: false,
-      imgFile: null
+      imgFile: null,
+      searchQuery: null,
+      results: []
     };
   },
   components: {
@@ -130,12 +132,44 @@ __webpack_require__.r(__webpack_exports__);
     card: _components_Card_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     modal: _components_Modal_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
+  watch: {
+    searchQuery: function searchQuery(after, before) {
+      this.search(after);
+    }
+  },
   methods: {
     modalChange: function modalChange(value) {
       this.isModal = value;
     },
     handleImg: function handleImg(img) {
       this.imgFile = img;
+    },
+    search: function search(after) {
+      // make search request with axios when database is ready
+      // axios.post('/search', { params {searchQuery: this.searchQuery}}
+      //     .then(response => this.results = response.data)
+      //     .catch(error=>{}));
+      //test to see if "search results" will refresh
+      if (after > 5) {
+        this.results = [{
+          img: "../images/red-sand.jpg",
+          title: "more than",
+          text: null
+        }, {
+          title: "5"
+        }];
+      } else {
+        this.results = [{
+          title: "less than ",
+          text: "testing"
+        }, {
+          title: "5"
+        }, {
+          text: "testing no title"
+        }, {
+          text: "testing 4"
+        }];
+      }
     }
   }
 }); // <router-link :to="{ name: 'Register' }">Register</router-link>
@@ -421,9 +455,15 @@ var _hoisted_3 = {
   "class": "main-container"
 };
 var _hoisted_4 = {
-  key: 0
+  "class": "search-container"
 };
 var _hoisted_5 = {
+  "class": "cards-container"
+};
+var _hoisted_6 = {
+  key: 0
+};
+var _hoisted_7 = {
   key: 1
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -463,26 +503,34 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["onImgFile", "onModalChange", "isModal"])], 32
   /* HYDRATE_EVENTS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card, {
-    img: "../images/red-sand.jpg",
-    title: "Red Desert",
-    alt: "Red Desert Landscape",
-    text: "Where I want to travel..."
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card, {
-    img: "null",
-    title: "Midterm Structure",
-    text: "Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text."
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card, {
-    img: "null",
-    title: "Midterm Structure",
-    text: "C#"
-  })]), _ctx.isModal === 'snippit' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.searchQuery = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.searchQuery]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("search stuff \n            <div class=\"searchStuff\"> \n            "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_ctx.results.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: 0
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.results, function (result) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_card, {
+      key: result.id,
+      img: result.img,
+      title: result.title,
+      text: result.text,
+      alt: result.alt
+    }, null, 8
+    /* PROPS */
+    , ["img", "title", "text", "alt"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\n            </div>\n             end of search stuff "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\n\n            <card\n                img=\"../images/red-sand.jpg\"\n                title=\"Red Desert\"\n                alt=\"Red Desert Landscape\"\n                text=\"Where I want to travel...\"\n            />\n            <card\n                img=\"null\"\n                title=\"Midterm Structure\"\n                text=\"Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text.\"\n            />\n            <card img=\"null\" title=\"Midterm Structure\" text=\"C#\" />\n\n            ")]), _ctx.isModal === 'snippit' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
     mode: "snippit",
     onModalChange: $options.modalChange,
     img: _ctx.imgFile
   }, null, 8
   /* PROPS */
-  , ["onModalChange", "img"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.isModal === 'note' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
+  , ["onModalChange", "img"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.isModal === 'note' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
     mode: "note",
     onModalChange: $options.modalChange,
     img: _ctx.imgFile
@@ -578,7 +626,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container {\n    width: 80%;\n}\n.nav-container {\n    text-align: right;\n}\n.nav-container img {\n    width: 1.5em;\n    margin: 1em;\n}\n.header-container {\n    display: flex;\n    justify-content: center;\n    margin-top: 2em;\n}\n.main-container {\n    display: flex;\n    justify-content: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ninput {\n    color: black;\n    width: 500px;\n}\n.container {\n    width: 80%;\n}\n.nav-container {\n    text-align: right;\n}\n.nav-container img {\n    width: 1.5em;\n    margin: 1em;\n}\n.header-container {\n    display: flex;\n    justify-content: center;\n    margin-top: 2em;\n}\n.main-container {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n}\n.cards-container {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
