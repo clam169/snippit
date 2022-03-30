@@ -44,6 +44,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     onClick: function onClick(e) {
       if (this.id === "note") this.$emit("modalChange", "note");
+    },
+    submitNewSnippit: function submitNewSnippit() {// POST /new-snippit
     }
   }
 });

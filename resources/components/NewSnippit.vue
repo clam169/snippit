@@ -43,6 +43,9 @@ export default {
         onClick(e) {
             if (this.id === "note") this.$emit("modalChange", "note");
         },
+        submitNewSnippit() {
+            // POST /new-snippit
+        },
     },
 };
 </script>
