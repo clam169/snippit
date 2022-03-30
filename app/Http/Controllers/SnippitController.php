@@ -33,6 +33,7 @@ class SnippitController extends Controller
     public function newSnippit(Request $request)
     {
         Snippit::create([
+            'title' => $request['title'],
             
         ]);
 
