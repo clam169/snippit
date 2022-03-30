@@ -150,17 +150,17 @@ __webpack_require__.r(__webpack_exports__);
       //     .then(response => this.results = response.data)
       //     .catch(error=>{}));
       //test to see if "search results" will refresh
-      if (after > 5) {
+      if (after === "") {
         this.results = [{
           img: "../images/red-sand.jpg",
-          title: "more than",
+          title: "mimicking all",
           text: null
         }, {
           title: "5"
         }];
       } else {
         this.results = [{
-          title: "less than ",
+          title: "anything",
           text: "testing"
         }, {
           title: "5"
@@ -507,7 +507,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "text",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return _ctx.searchQuery = $event;
-    })
+    }),
+    placeholder: "Search by tag"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.searchQuery]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("search stuff \n            <div class=\"searchStuff\"> \n            "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_ctx.results.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {

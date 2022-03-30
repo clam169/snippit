@@ -30,7 +30,11 @@
         </header>
         <main class="main-container">
             <div class="search-container">
-                <input type="text" v-model="searchQuery" />
+                <input
+                    type="text"
+                    v-model="searchQuery"
+                    placeholder="Search by tag"
+                />
             </div>
             <!--search stuff 
             <div class="searchStuff"> 
@@ -114,18 +118,18 @@ export default {
             //     .catch(error=>{}));
 
             //test to see if "search results" will refresh
-            if (after > 5) {
+            if (after === "") {
                 this.results = [
                     {
                         img: "../images/red-sand.jpg",
-                        title: "more than",
+                        title: "mimicking all",
                         text: null,
                     },
                     { title: "5" },
                 ];
             } else {
                 this.results = [
-                    { title: "less than ", text: "testing" },
+                    { title: "anything", text: "testing" },
                     { title: "5" },
                     { text: "testing no title" },
                     { text: "testing 4" },
