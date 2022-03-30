@@ -24,9 +24,19 @@ class SnippitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function newNote(Request $request)
     {
-        //
+        
+        return $request['title'];
+    }
+
+    public function newSnippit(Request $request)
+    {
+        Snippit::create([
+
+        ]);
+        
+        return $request['image'];
     }
 
     /**

@@ -21,3 +21,5 @@ Route::get('/', function () {
 
 Route::get('/snippit', 'SnippitController@index');
 Route::get('/tag', 'TagController@index');
+Route::post('/new/note', 'SnippitController@newNote');
+Route::post('/new/snippit', 'SnippitController@newSnippit');
