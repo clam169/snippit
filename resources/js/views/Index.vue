@@ -12,6 +12,7 @@
                 title="New Snippit"
                 command="Drag image to create a new snippit"
                 alt="A computer icon."
+                height=window.innerHeight
                 :isModal="isModal"
                 id="snippit"
             />
@@ -22,13 +23,14 @@
                 title="New Note"
                 command="(f3)"
                 alt="A note with a plus symbol."
+                height=window.innerHeight
                 :isModal="isModal"
                 id="note"
             />
         </header>
         <main class="main-container">
-            <card img="null" title="Midterm Structure" text="C#" />
-            <card img="null" title="Midterm Structure" text="C#" />
+            <card img="../images/red-sand.jpg" title="Red Desert" alt="Red Desert Landscape" text="Where I want to travel..." />
+            <card img="null" title="Midterm Structure" text="Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text." />
             <card img="null" title="Midterm Structure" text="C#" />
         </main>
         <div v-if="isModal === 'snippit'">

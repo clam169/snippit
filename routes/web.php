@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SnippitController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/new/snippit', [SnippitController::class,'newSnippit']);
-Route::post('/new/note', [SnippitController::class,'newNote']);
+Route::get('/snippit', 'SnippitController@index');
+Route::get('/tag', 'TagController@index');
+Route::post('/new/note', 'SnippitController@newNote');
+Route::post('/new/snippit', 'SnippitController@newSnippit');

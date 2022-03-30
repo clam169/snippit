@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'card',
-  props: ['img', 'title', 'text']
+  props: ['img', 'title', 'alt', 'text']
 });
 
 /***/ }),
@@ -34,7 +34,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       imgSrc: "",
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+      title: "",
+      notes: "",
+      tags: ""
     };
   },
   emits: ["modalChange"],
@@ -47,6 +49,42 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     close: function close() {
       this.$emit("modalChange", false);
+    },
+    postSnippit: function postSnippit(e) {
+      var _this = this;
+
+      e.preventDefault();
+      var formData = new FormData();
+
+      if (this.img) {
+        formData.append("image", this.img[0]);
+      } else {
+        formData.append("image", "");
+      }
+
+      formData.append("title", title.value);
+      formData.append("content", notes.value);
+      formData.append("tags", tags.value);
+
+      var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+      axios.post(this.img ? "/new/snippit" : "/new/note", {
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }).then(function (response) {
+        console.log(response);
+
+        if (response.status === 200) {
+          _this.$emit("modalChange", false); // display success toast icon here
+
+        } else {
+          console.log("Error creating snippit");
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -161,14 +199,51 @@ var _hoisted_1 = {
   "class": "note-card"
 };
 var _hoisted_2 = {
+  key: 0,
   "class": "content"
 };
+var _hoisted_3 = {
+  "class": "note-text"
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  id: "tag"
+}, "Test", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = {
+  key: 1
+};
+var _hoisted_6 = ["src", "alt"];
+var _hoisted_7 = {
+  "class": "img-content"
+};
+var _hoisted_8 = {
+  "class": "img-text"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  id: "tag"
+}, "Test", -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("article", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("article", _hoisted_1, [$props.img == 'null' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
   /* TEXT */
-  )])]);
+  ), _hoisted_4])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: $props.img,
+    alt: $props.alt
+  }, null, 8
+  /* PROPS */
+  , _hoisted_6), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
+  /* TEXT */
+  ), _hoisted_9])]))]);
 }
 
 /***/ }),
@@ -225,57 +300,17 @@ var _hoisted_10 = {
 };
 var _hoisted_11 = ["src"];
 var _hoisted_12 = ["action"];
-var _hoisted_13 = ["value"];
-var _hoisted_14 = {
+var _hoisted_13 = {
   type: "file",
   name: "fileUp",
   id: "fileUp",
-  ref: "imgInput"
+  ref: "imgInput",
+  accept: "image/*"
 };
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  "class": "text-input",
-  type: "text",
-  name: "title",
-  id: "title",
-  placeholder: "Title"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
-  form: "snippit-form",
-  "class": "text-input",
-  name: "content",
-  id: "content",
-  cols: "30",
-  rows: "5",
-  placeholder: "Notes"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  "class": "text-input",
-  type: "text",
-  name: "tags",
-  id: "title",
-  placeholder: "Separate tags by commas eg. math, physics"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  "class": "submit",
-  type: "submit",
-  value: "New Snippit"
-}, null, -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$props.mode === 'snippit' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, _hoisted_6)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, _hoisted_9)), $props.mode === 'snippit' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "thumbnail",
+    name: "image",
     src: this.imgSrc,
     alt: "image preview"
   }, null, 8
@@ -283,23 +318,57 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , _hoisted_11)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     action: '/new/' + $props.mode,
     method: "post",
-    id: "snippit-form",
-    enctype: "multipart/form-data"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "hidden",
-    name: "_token",
-    value: _ctx.csrf
-  }, null, 8
-  /* PROPS */
-  , _hoisted_13), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", _hoisted_14, null, 512
+    id: "snippit-form"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", _hoisted_13, null, 512
   /* NEED_PATCH */
-  ), _hoisted_15, _hoisted_16, _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "text-input",
+    type: "text",
+    name: "title",
+    id: "title",
+    placeholder: "Title",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.inputData = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.inputData]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+    form: "snippit-form",
+    "class": "text-input",
+    name: "notes",
+    id: "notes",
+    cols: "30",
+    rows: "5",
+    placeholder: "Notes",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return _ctx.inputData = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.inputData]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "text-input",
+    type: "text",
+    name: "tags",
+    id: "tags",
+    placeholder: "Separate tags by spaces eg. math physics",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.inputData = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.inputData]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
-    onClick: _cache[0] || (_cache[0] = function () {
+    onClick: _cache[3] || (_cache[3] = function () {
       return $options.close && $options.close.apply($options, arguments);
     }),
     "class": "close"
-  }, " Close "), _hoisted_18])], 8
+  }, " Close "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "submit",
+    type: "submit",
+    onClick: _cache[4] || (_cache[4] = function () {
+      return $options.postSnippit && $options.postSnippit.apply($options, arguments);
+    })
+  }, " New Snippit ")])], 8
   /* PROPS */
   , _hoisted_12)])])], 64
   /* STABLE_FRAGMENT */
@@ -418,6 +487,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     title: "New Snippit",
     command: "Drag image to create a new snippit",
     alt: "A computer icon.",
+    height: "window.innerHeight",
     isModal: _ctx.isModal,
     id: "snippit"
   }, null, 8
@@ -429,6 +499,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     title: "New Note",
     command: "(f3)",
     alt: "A note with a plus symbol.",
+    height: "window.innerHeight",
     isModal: _ctx.isModal,
     id: "note"
   }, null, 8
@@ -436,13 +507,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , ["onImgFile", "onModalChange", "isModal"])], 32
   /* HYDRATE_EVENTS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card, {
-    img: "null",
-    title: "Midterm Structure",
-    text: "C#"
+    img: "../images/red-sand.jpg",
+    title: "Red Desert",
+    alt: "Red Desert Landscape",
+    text: "Where I want to travel..."
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card, {
     img: "null",
     title: "Midterm Structure",
-    text: "C#"
+    text: "Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text."
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card, {
     img: "null",
     title: "Midterm Structure",
@@ -480,7 +552,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card {\n        width: 20.5em;\n        height: 20.5em;\n        margin: 1em;\n        border-style: solid;\n        border-radius: 15px;\n}\n.note-card h2 {\n        margin-top: 1em;\n}\n.content {\n        width: 80%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card img {\n        min-width: 100%;\n        height: 10em;\n        border-top-right-radius: 15px;\n        border-top-left-radius: 15px;\n}\n.img-content {\n        padding: 0 1em 1em 1em;\n}\n.note-card {\n        width: 20.5em;\n        height: 20.5em;\n        margin: 1em;\n        border-color: white;\n        border-style: solid;\n        border-radius: 15px;\n        word-wrap: break-word;\n        overflow-x: scroll;\n}\n.img-text {\n        height: 30%;\n}\n.note-text {\n        height: 50%;\n}\n.note-card h2 {\n        margin-top: 1em;\n}\n.content {\n        width: 80%;\n}\n.text {\n        height: 80%;\n}\n#tag {\n        color: black;\n        display: inline-block;\n        background-color: orangered;\n        padding: 0.2rem;\n        border-radius: 3px;\n}\n    \n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -503,7 +575,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay {\n    height: 100vh;\n    width: 100vw;\n    position: absolute;\n    top: 0;\n    left: 0;\n    background-color: black;\n    opacity: 60%;\n}\n.close {\n    padding: 8px;\n    cursor: pointer;\n    background-color: rgb(141, 87, 87);\n    border: none;\n    border-radius: 5px;\n    margin: 12px 0 0 0;\n    width: 96px;\n}\n.modalContainer {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.modal {\n    background-color: #313131;\n    z-index: 50;\n    padding: 2rem 2rem;\n    border-radius: 5%;\n    width: 40%;\n    max-height: 80%;\n    overflow: scroll;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.header {\n    margin-bottom: 24px;\n}\n.thumbnail {\n    max-width: 250px;\n    max-height: 250px;\n}\nform {\n    margin: 36px 0 0 0;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n}\n#fileUp {\n    display: none;\n}\n.text-input {\n    font-size: 14px;\n    resize: none;\n    border-radius: 5px;\n    border: none;\n    color: white;\n    background-color: #222222;\n    width: 80%;\n    margin: 8px auto;\n    padding: 10px;\n}\n.submit {\n    padding: 8px;\n    cursor: pointer;\n    background-color: rgb(96, 145, 130);\n    border: none;\n    border-radius: 5px;\n    margin: 12px 0 0 36px;\n    width: 96px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay {\n    width: 100vw;\n    height: 100vh;\n    position: absolute;\n    top: 0;\n    left: 0;\n    background-color: black;\n    opacity: 60%;\n}\n.close {\n    padding: 8px;\n    cursor: pointer;\n    background-color: rgb(141, 87, 87);\n    border: none;\n    border-radius: 5px;\n    margin: 12px 0 0 0;\n    width: 96px;\n}\n.modalContainer {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.modal {\n    background-color: #313131;\n    z-index: 50;\n    padding: 2rem 2rem;\n    border-radius: 5%;\n    width: 40%;\n    max-height: 80%;\n    overflow: scroll;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.header {\n    margin-bottom: 24px;\n}\n.thumbnail {\n    max-width: 250px;\n    max-height: 250px;\n}\nform {\n    margin: 36px 0 0 0;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n}\n#fileUp {\n    display: none;\n}\n.text-input {\n    font-size: 14px;\n    resize: none;\n    border-radius: 5px;\n    border: none;\n    color: white;\n    background-color: #222222;\n    width: 80%;\n    margin: 8px auto;\n    padding: 10px;\n}\n.submit {\n    padding: 8px;\n    cursor: pointer;\n    background-color: rgb(96, 145, 130);\n    border: none;\n    border-radius: 5px;\n    margin: 12px 0 0 36px;\n    width: 96px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

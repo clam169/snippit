@@ -11,46 +11,52 @@
             <div v-if="mode === 'snippit'">
                 <img
                     class="thumbnail"
+                    name="image"
                     v-bind:src="this.imgSrc"
                     alt="image preview"
                 />
             </div>
-            <form
-                :action="'/new/' + mode"
-                method="post"
-                id="snippit-form"
-                enctype="multipart/form-data"
-            >
-                <input type="hidden" name="_token" :value="csrf" />
-                <input type="file" name="fileUp" id="fileUp" ref="imgInput" />
+            <form :action="'/new/' + mode" method="post" id="snippit-form">
+                <input
+                    type="file"
+                    name="fileUp"
+                    id="fileUp"
+                    ref="imgInput"
+                    accept="image/*"
+                />
                 <input
                     class="text-input"
                     type="text"
                     name="title"
                     id="title"
                     placeholder="Title"
+                    v-model="inputData"
                 />
                 <textarea
                     form="snippit-form"
                     class="text-input"
-                    name="content"
-                    id="content"
+                    name="notes"
+                    id="notes"
                     cols="30"
                     rows="5"
                     placeholder="Notes"
+                    v-model="inputData"
                 ></textarea>
                 <input
                     class="text-input"
                     type="text"
                     name="tags"
-                    id="title"
-                    placeholder="Separate tags by commas eg. math, physics"
+                    id="tags"
+                    placeholder="Separate tags by spaces eg. math physics"
+                    v-model="inputData"
                 />
                 <div>
                     <button type="button" @click="close" class="close">
                         Close
                     </button>
-                    <input class="submit" type="submit" value="New Snippit" />
+                    <button class="submit" type="submit" @click="postSnippit">
+                        New Snippit
+                    </button>
                 </div>
             </form>
         </div>
@@ -61,12 +67,14 @@
 export default {
     name: "modal",
     props: ["mode", "img"],
-    data: () => ({
-        imgSrc: "",
-        csrf: document
-            .querySelector('meta[name="csrf-token"]')
-            .getAttribute("content"),
-    }),
+    data() {
+        return {
+            imgSrc: "",
+            title: "",
+            notes: "",
+            tags: "",
+        };
+    },
     emits: ["modalChange"],
     mounted() {
         if (this.img) {
@@ -78,14 +86,44 @@ export default {
         close() {
             this.$emit("modalChange", false);
         },
+        postSnippit(e) {
+            e.preventDefault();
+            let formData = new FormData();
+            if (this.img) {
+                formData.append("image", this.img[0]);
+            } else {
+                formData.append("image", "");
+            }
+            formData.append("title", title.value);
+            formData.append("content", notes.value);
+            formData.append("tags", tags.value);
+            const axios = require("axios");
+            axios
+                .post(this.img ? "/new/snippit" : "/new/note", {
+                    data: formData,
+                    headers: { "Content-Type": "multipart/form-data" },
+                })
+                .then((response) => {
+                    console.log(response);
+                    if (response.status === 200) {
+                        this.$emit("modalChange", false);
+                        // display success toast icon here
+                    } else {
+                        console.log("Error creating snippit");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
     },
 };
 </script>
 
 <style>
 .overlay {
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
