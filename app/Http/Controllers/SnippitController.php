@@ -24,9 +24,10 @@ class SnippitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function newNote(Request $request)
     {
-        //
+        return $request;
+        dd($request);
     }
 
     /**
