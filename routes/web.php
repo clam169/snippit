@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SnippitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/new/snippit', [SnippitController::class,'newSnippit']);
+Route::post('/new/note', [SnippitController::class,'newNote']);

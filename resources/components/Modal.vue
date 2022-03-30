@@ -15,7 +15,13 @@
                     alt="image preview"
                 />
             </div>
-            <form :action="'/new/' + mode" method="post" id="snippit-form">
+            <form
+                :action="'/new/' + mode"
+                method="post"
+                id="snippit-form"
+                enctype="multipart/form-data"
+            >
+                <input type="hidden" name="_token" :value="csrf" />
                 <input type="file" name="fileUp" id="fileUp" ref="imgInput" />
                 <input
                     class="text-input"
@@ -57,6 +63,9 @@ export default {
     props: ["mode", "img"],
     data: () => ({
         imgSrc: "",
+        csrf: document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content"),
     }),
     emits: ["modalChange"],
     mounted() {
