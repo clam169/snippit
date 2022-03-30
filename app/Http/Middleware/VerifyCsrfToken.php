@@ -14,5 +14,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'auth/facebook/callback',
         '/new/note',
+        'new/snippit'
     ];
 }

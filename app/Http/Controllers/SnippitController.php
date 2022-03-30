@@ -26,8 +26,17 @@ class SnippitController extends Controller
      */
     public function newNote(Request $request)
     {
-        return $request;
-        dd($request);
+        
+        return $request['title'];
+    }
+
+    public function newSnippit(Request $request)
+    {
+        Snippit::create([
+
+        ]);
+        
+        return $request['image'];
     }
 
     /**
