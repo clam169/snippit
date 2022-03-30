@@ -509,7 +509,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card img {\n        min-width: 100%;\n        height: 10em;\n        border-top-right-radius: 15px;\n        border-top-left-radius: 15px;\n}\n.img-content {\n        padding: 0 1em 1em 1em;\n}\n.note-card {\n        width: 20.5em;\n        height: 20.5em;\n        margin: 1em;\n        border-color: white;\n        border-style: solid;\n        border-radius: 15px;\n        word-wrap: break-word;\n        overflow-x: scroll;\n}\n.img-text {\n        height: 30%;\n}\n.note-text {\n        height: 50%;\n}\n.note-card h2 {\n        margin-top: 1em;\n}\n.content {\n        width: 80%;\n}\n.text {\n        height: 80%;\n}\n#tag {\n        color: black;\n        display: inline-block;\n        background-color: orangered;\n        padding: 0.2rem;\n        border-radius: 3px;\n}\n    \n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card img {\r\n        min-width: 100%;\r\n        height: 10em;\r\n        border-top-right-radius: 15px;\r\n        border-top-left-radius: 15px;\n}\n.img-content {\r\n        padding: 0 1em 1em 1em;\n}\n.note-card {\r\n        width: 20.5em;\r\n        height: 20.5em;\r\n        margin: 1em;\r\n        border-color: white;\r\n        border-style: solid;\r\n        border-radius: 15px;\r\n        word-wrap: break-word;\r\n        overflow-x: scroll;\n}\n.img-text {\r\n        height: 30%;\n}\n.note-text {\r\n        height: 50%;\n}\n.note-card h2 {\r\n        margin-top: 1em;\n}\n.content {\r\n        width: 80%;\n}\n.text {\r\n        height: 80%;\n}\n#tag {\r\n        color: black;\r\n        display: inline-block;\r\n        background-color: orangered;\r\n        padding: 0.2rem;\r\n        border-radius: 3px;\n}\r\n    \r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -532,7 +532,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay {\n    width: 100vw;\n    height: 100vh;\n    position: absolute;\n    top: 0;\n    left: 0;\n    background-color: black;\n    opacity: 60%;\n}\n.close {\n    padding: 8px;\n    cursor: pointer;\n    background-color: rgb(141, 87, 87);\n    border: none;\n    border-radius: 5px;\n    margin: 12px 0 0 0;\n    width: 96px;\n}\n.modalContainer {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.modal {\n    background-color: #313131;\n    z-index: 50;\n    padding: 2rem 2rem;\n    border-radius: 5%;\n    width: 40%;\n    overflow-y: scroll;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.header {\n    margin-bottom: 24px;\n}\n.thumbnail {\n    max-width: 250px;\n    max-height: 250px;\n}\nform {\n    margin: 36px 0 0 0;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n}\n#fileUp {\n    display: none;\n}\n.text-input {\n    font-size: 14px;\n    resize: none;\n    border-radius: 5px;\n    border: none;\n    color: white;\n    background-color: #222222;\n    width: 80%;\n    margin: 8px auto;\n    padding: 10px;\n}\n.submit {\n    padding: 8px;\n    cursor: pointer;\n    background-color: rgb(96, 145, 130);\n    border: none;\n    border-radius: 5px;\n    margin: 12px 0 0 36px;\n    width: 96px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background-color: black;\r\n    opacity: 60%;\n}\n.close {\r\n    padding: 8px;\r\n    cursor: pointer;\r\n    background-color: rgb(141, 87, 87);\r\n    border: none;\r\n    border-radius: 5px;\r\n    margin: 12px 0 0 0;\r\n    width: 96px;\n}\n.modalContainer {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.modal {\r\n    background-color: #313131;\r\n    z-index: 50;\r\n    padding: 2rem 2rem;\r\n    border-radius: 5%;\r\n    width: 40%;\r\n    overflow-y: scroll;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\n}\n.header {\r\n    margin-bottom: 24px;\n}\n.thumbnail {\r\n    max-width: 250px;\r\n    max-height: 250px;\n}\nform {\r\n    margin: 36px 0 0 0;\r\n    width: 100%;\r\n    display: flex;\r\n    align-items: center;\r\n    flex-direction: column;\n}\n#fileUp {\r\n    display: none;\n}\n.text-input {\r\n    font-size: 14px;\r\n    resize: none;\r\n    border-radius: 5px;\r\n    border: none;\r\n    color: white;\r\n    background-color: #222222;\r\n    width: 80%;\r\n    margin: 8px auto;\r\n    padding: 10px;\n}\n.submit {\r\n    padding: 8px;\r\n    cursor: pointer;\r\n    background-color: rgb(96, 145, 130);\r\n    border: none;\r\n    border-radius: 5px;\r\n    margin: 12px 0 0 36px;\r\n    width: 96px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -555,7 +555,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\n    /* Position & Layout */\n    cursor: pointer;\n    display: flex;\n    flex-direction: column;\n    align-content: center;\n    align-items: center;\n\n    /* Box Model */\n    margin: 2em;\n    border-radius: 15px;\n    width: 28em;\n    padding: 1.5em;\n\n    /* Background */\n    background-color: #313131;\n}\n.main-card img {\n    margin: 1em;\n    height: 5.5em;\n}\n#imgInput {\n    display: none;\n}\n.onFileHover {\n    background-color: #464646;\n}\n.noPointer {\n    pointer-events: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.main-card {\r\n    /* Position & Layout */\r\n    cursor: pointer;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-content: center;\r\n    align-items: center;\r\n\r\n    /* Box Model */\r\n    margin: 2em;\r\n    border-radius: 15px;\r\n    width: 28em;\r\n    padding: 1.5em;\r\n\r\n    /* Background */\r\n    background-color: #313131;\n}\n.main-card img {\r\n    margin: 1em;\r\n    height: 5.5em;\n}\n#imgInput {\r\n    display: none;\n}\n.onFileHover {\r\n    background-color: #464646;\n}\n.noPointer {\r\n    pointer-events: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -578,7 +578,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container {\n    width: 80%;\n}\n.nav-container {\n    text-align: right;\n}\n.nav-container img {\n    width: 1.5em;\n    margin: 1em;\n}\n.header-container {\n    display: flex;\n    justify-content: center;\n    margin-top: 2em;\n}\n.main-container {\n    display: flex;\n    justify-content: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container {\r\n    width: 80%;\n}\n.nav-container {\r\n    text-align: right;\n}\n.nav-container img {\r\n    width: 1.5em;\r\n    margin: 1em;\n}\n.header-container {\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-top: 2em;\n}\n.main-container {\r\n    display: flex;\r\n    justify-content: center;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -595,7 +595,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/account.svg?13e366bea7ade4a43b4fda09642ef2c0");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/account.svg?6d7e985ed8fe4244e1a82273bf257874");
 
 /***/ }),
 
@@ -609,7 +609,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/menu.svg?7b2f6b15f4eed806e42b8b76df3354fb");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/menu.svg?ad276b75d2ed9a2bfb327af3a788073d");
 
 /***/ }),
 
@@ -742,7 +742,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Card_vue_vue_type_template_id_08445581__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Card.vue?vue&type=template&id=08445581 */ "./resources/components/Card.vue?vue&type=template&id=08445581");
 /* harmony import */ var _Card_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Card.vue?vue&type=script&lang=js */ "./resources/components/Card.vue?vue&type=script&lang=js");
 /* harmony import */ var _Card_vue_vue_type_style_index_0_id_08445581_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Card.vue?vue&type=style&index=0&id=08445581&lang=css */ "./resources/components/Card.vue?vue&type=style&index=0&id=08445581&lang=css");
+<<<<<<< HEAD
 /* harmony import */ var _Users_matteo_projects_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+=======
+/* harmony import */ var C_Users_FIBONACCI_Desktop_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+>>>>>>> f364c2fe056f46c5c03f858089a6c01bcf364910
 
 
 
@@ -750,7 +754,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
+<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,_Users_matteo_projects_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Card_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Card_vue_vue_type_template_id_08445581__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/components/Card.vue"]])
+=======
+const __exports__ = /*#__PURE__*/(0,C_Users_FIBONACCI_Desktop_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Card_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Card_vue_vue_type_template_id_08445581__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/components/Card.vue"]])
+>>>>>>> f364c2fe056f46c5c03f858089a6c01bcf364910
 /* hot reload */
 if (false) {}
 
@@ -772,7 +780,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Modal_vue_vue_type_template_id_da534be8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal.vue?vue&type=template&id=da534be8 */ "./resources/components/Modal.vue?vue&type=template&id=da534be8");
 /* harmony import */ var _Modal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Modal.vue?vue&type=script&lang=js */ "./resources/components/Modal.vue?vue&type=script&lang=js");
 /* harmony import */ var _Modal_vue_vue_type_style_index_0_id_da534be8_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal.vue?vue&type=style&index=0&id=da534be8&lang=css */ "./resources/components/Modal.vue?vue&type=style&index=0&id=da534be8&lang=css");
+<<<<<<< HEAD
 /* harmony import */ var _Users_matteo_projects_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+=======
+/* harmony import */ var C_Users_FIBONACCI_Desktop_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+>>>>>>> f364c2fe056f46c5c03f858089a6c01bcf364910
 
 
 
@@ -780,7 +792,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
+<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,_Users_matteo_projects_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Modal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Modal_vue_vue_type_template_id_da534be8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/components/Modal.vue"]])
+=======
+const __exports__ = /*#__PURE__*/(0,C_Users_FIBONACCI_Desktop_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Modal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Modal_vue_vue_type_template_id_da534be8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/components/Modal.vue"]])
+>>>>>>> f364c2fe056f46c5c03f858089a6c01bcf364910
 /* hot reload */
 if (false) {}
 
@@ -802,7 +818,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NewSnippit_vue_vue_type_template_id_13d8130a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewSnippit.vue?vue&type=template&id=13d8130a */ "./resources/components/NewSnippit.vue?vue&type=template&id=13d8130a");
 /* harmony import */ var _NewSnippit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewSnippit.vue?vue&type=script&lang=js */ "./resources/components/NewSnippit.vue?vue&type=script&lang=js");
 /* harmony import */ var _NewSnippit_vue_vue_type_style_index_0_id_13d8130a_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NewSnippit.vue?vue&type=style&index=0&id=13d8130a&lang=css */ "./resources/components/NewSnippit.vue?vue&type=style&index=0&id=13d8130a&lang=css");
+<<<<<<< HEAD
 /* harmony import */ var _Users_matteo_projects_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+=======
+/* harmony import */ var C_Users_FIBONACCI_Desktop_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+>>>>>>> f364c2fe056f46c5c03f858089a6c01bcf364910
 
 
 
@@ -810,7 +830,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
+<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,_Users_matteo_projects_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_NewSnippit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_NewSnippit_vue_vue_type_template_id_13d8130a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/components/NewSnippit.vue"]])
+=======
+const __exports__ = /*#__PURE__*/(0,C_Users_FIBONACCI_Desktop_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_NewSnippit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_NewSnippit_vue_vue_type_template_id_13d8130a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/components/NewSnippit.vue"]])
+>>>>>>> f364c2fe056f46c5c03f858089a6c01bcf364910
 /* hot reload */
 if (false) {}
 
@@ -832,7 +856,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Index_vue_vue_type_template_id_494d9643__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=494d9643 */ "./resources/js/views/Index.vue?vue&type=template&id=494d9643");
 /* harmony import */ var _Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js */ "./resources/js/views/Index.vue?vue&type=script&lang=js");
 /* harmony import */ var _Index_vue_vue_type_style_index_0_id_494d9643_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Index.vue?vue&type=style&index=0&id=494d9643&lang=css */ "./resources/js/views/Index.vue?vue&type=style&index=0&id=494d9643&lang=css");
+<<<<<<< HEAD
 /* harmony import */ var _Users_matteo_projects_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+=======
+/* harmony import */ var C_Users_FIBONACCI_Desktop_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+>>>>>>> f364c2fe056f46c5c03f858089a6c01bcf364910
 
 
 
@@ -840,7 +868,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
+<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,_Users_matteo_projects_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Index_vue_vue_type_template_id_494d9643__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Index.vue"]])
+=======
+const __exports__ = /*#__PURE__*/(0,C_Users_FIBONACCI_Desktop_snippit_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Index_vue_vue_type_template_id_494d9643__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Index.vue"]])
+>>>>>>> f364c2fe056f46c5c03f858089a6c01bcf364910
 /* hot reload */
 if (false) {}
 
