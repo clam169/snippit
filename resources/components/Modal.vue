@@ -11,34 +11,38 @@
             <div v-if="mode === 'snippit'">
                 <img
                     class="thumbnail"
+                    name="image"
                     v-bind:src="this.imgSrc"
                     alt="image preview"
                 />
             </div>
             <form :action="'/new/' + mode" method="post" id="snippit-form">
-                <input type="file" name="fileUp" id="fileUp" ref="imgInput" />
+                <input type="file" name="fileUp" id="fileUp" ref="imgInput" accept="image/*"/>
                 <input
                     class="text-input"
                     type="text"
                     name="title"
                     id="title"
                     placeholder="Title"
+                    v-model="inputData"
                 />
                 <textarea
                     form="snippit-form"
                     class="text-input"
-                    name="content"
-                    id="content"
+                    name="notes"
+                    id="notes"
                     cols="30"
                     rows="5"
                     placeholder="Notes"
+                    v-model="inputData"
                 ></textarea>
                 <input
                     class="text-input"
                     type="text"
                     name="tags"
-                    id="title"
+                    id="tags"
                     placeholder="Separate tags by commas eg. math, physics"
+                    v-model="inputData"
                 />
                 <div>
                     <button type="button" @click="close" class="close">
@@ -55,12 +59,14 @@
 export default {
     name: "modal",
     props: ["mode", "img"],
-    data: () => ({
-        imgSrc: "",
-        title: "",
-        notes: "",
-        tags: ""
-    }),
+    data() {
+        return {
+            imgSrc: "",
+            title: "",
+            notes: "",
+            tags: ""
+        }
+    },
     emits: ["modalChange"],
     mounted() {
         if (this.img) {
@@ -72,16 +78,24 @@ export default {
         close() {
             this.$emit("modalChange", false);
         },
-        postSnippit() {
+        postSnippit(e) {
+            e.preventDefault();
+            let formData = new FormData()
+            if (this.img) {
+                formData.append('image', this.img[0]);
+            } else {
+                formData.append('image', "");
+            }
+            formData.append('title', title.value);
+            formData.append('notes', notes.value);
+            formData.append('tags', tags.value);
+            const axios = require('axios');
             axios.post('http://127.0.0.1:8000/new-snippit', {
-                img: this.imgSrc,
-                title: this.title,
-                notes: this.notes,
-                tags: this.tags
+                data: formData,
+                headers: { "Content-Type": "multipart/form-data" }
             })
             .then((response) => {
                 console.log(response);
-                console.log(this.imgSrc, this.title, this.notes, this.tags);
             })
             .catch((error) => {
                 console.log(error);
