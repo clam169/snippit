@@ -44,7 +44,7 @@
                     <button type="button" @click="close" class="close">
                         Close
                     </button>
-                    <input class="submit" type="submit" value="New Snippit" />
+                    <input class="submit" type="submit" @click="postSnippit" value="New Snippit" />
                 </div>
             </form>
         </div>
@@ -57,6 +57,9 @@ export default {
     props: ["mode", "img"],
     data: () => ({
         imgSrc: "",
+        title: "",
+        notes: "",
+        tags: ""
     }),
     emits: ["modalChange"],
     mounted() {
@@ -69,6 +72,21 @@ export default {
         close() {
             this.$emit("modalChange", false);
         },
+        postSnippit() {
+            axios.post('http://127.0.0.1:8000/new-snippit', {
+                img: this.imgSrc,
+                title: this.title,
+                notes: this.notes,
+                tags: this.tags
+            })
+            .then((response) => {
+                console.log(response);
+                console.log(this.imgSrc, this.title, this.notes, this.tags);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        }
     },
 };
 </script>

@@ -42,7 +42,7 @@ export default {
         },
         onClick(e) {
             if (this.id === "note") this.$emit("modalChange", "note");
-        },
+        }
     },
 };
 </script>
