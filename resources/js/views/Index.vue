@@ -40,13 +40,13 @@
             <div class="searchStuff"> 
             -->
             <div class="cards-container">
-                <template v-if="results.length > 0">
-                    <template v-for="result in results" :key="result.id">
+                <template v-if="searchResults.length > 0">
+                    <template v-for="note in searchResults" :key="note.id">
                         <card
-                            :img="result.img"
-                            :title="result.title"
-                            :text="result.text"
-                            :alt="result.alt"
+                            :img="note.img"
+                            :title="note.title"
+                            :text="note.text"
+                            :alt="note.alt"
                         />
                     </template>
                 </template>
@@ -85,6 +85,7 @@
 import newSnippit from "../../components/NewSnippit.vue";
 import card from "../../components/Card.vue";
 import modal from "../../components/Modal.vue";
+import axios from "axios";
 
 export default {
     name: "index",
@@ -92,15 +93,19 @@ export default {
         isModal: false,
         imgFile: null,
         searchQuery: null,
-        results: [],
+        allNotes: [],
+        searchResults: [],
     }),
     components: {
         newSnippit,
         card,
         modal,
     },
+    mounted() {
+        this.getAllNotes();
+    },
     watch: {
-        searchQuery(after, before) {
+        searchQuery(after) {
             this.search(after);
         },
     },
@@ -111,28 +116,40 @@ export default {
         handleImg(img) {
             this.imgFile = img;
         },
-        search(after) {
-            // make search request with axios when database is ready
-            // axios.post('/search', { params {searchQuery: this.searchQuery}}
-            //     .then(response => this.results = response.data)
-            //     .catch(error=>{}));
-
+        getAllNotes() {
+            axios
+                .get("/snippit")
+                .then((response) => {
+                    console.log(response);
+                    this.searchResults = response.data.data;
+                    this.allNotes = response.data.data;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+        search(query) {
             //test to see if "search results" will refresh
-            if (after === "") {
-                this.results = [
+            if (query === "") {
+                this.searchResults = this.allNotes;
+            } else {
+                // make search request with axios when database is ready
+                // axios.post('/search', { params {searchQuery: query}}
+                //     .then(response => this.searchResults = response.data)
+                //     .catch(error=>{}));
+
+                this.searchResults = [
+                    {
+                        title: "anything other than empty string",
+                        text: "in the search",
+                    },
                     {
                         img: "../images/red-sand.jpg",
-                        title: "mimicking all",
-                        text: null,
+                        title: "title",
+                        text: "Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text",
                     },
-                    { title: "5" },
-                ];
-            } else {
-                this.results = [
-                    { title: "anything", text: "testing" },
-                    { title: "5" },
                     { text: "testing no title" },
-                    { text: "testing 4" },
+                    { title: "testing 4th card" },
                 ];
             }
         },

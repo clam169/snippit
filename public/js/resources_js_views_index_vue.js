@@ -153,6 +153,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_NewSnippit_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/NewSnippit.vue */ "./resources/components/NewSnippit.vue");
 /* harmony import */ var _components_Card_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Card.vue */ "./resources/components/Card.vue");
 /* harmony import */ var _components_Modal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Modal.vue */ "./resources/components/Modal.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -163,7 +166,8 @@ __webpack_require__.r(__webpack_exports__);
       isModal: false,
       imgFile: null,
       searchQuery: null,
-      results: []
+      allNotes: [],
+      searchResults: []
     };
   },
   components: {
@@ -171,8 +175,11 @@ __webpack_require__.r(__webpack_exports__);
     card: _components_Card_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     modal: _components_Modal_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
+  mounted: function mounted() {
+    this.getAllNotes();
+  },
   watch: {
-    searchQuery: function searchQuery(after, before) {
+    searchQuery: function searchQuery(after) {
       this.search(after);
     }
   },
@@ -183,30 +190,37 @@ __webpack_require__.r(__webpack_exports__);
     handleImg: function handleImg(img) {
       this.imgFile = img;
     },
-    search: function search(after) {
-      // make search request with axios when database is ready
-      // axios.post('/search', { params {searchQuery: this.searchQuery}}
-      //     .then(response => this.results = response.data)
-      //     .catch(error=>{}));
+    getAllNotes: function getAllNotes() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get("/snippit").then(function (response) {
+        console.log(response);
+        _this.searchResults = response.data.data;
+        _this.allNotes = response.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    search: function search(query) {
       //test to see if "search results" will refresh
-      if (after === "") {
-        this.results = [{
-          img: "../images/red-sand.jpg",
-          title: "mimicking all",
-          text: null
-        }, {
-          title: "5"
-        }];
+      if (query === "") {
+        this.searchResults = this.allNotes;
       } else {
-        this.results = [{
-          title: "anything",
-          text: "testing"
+        // make search request with axios when database is ready
+        // axios.post('/search', { params {searchQuery: query}}
+        //     .then(response => this.searchResults = response.data)
+        //     .catch(error=>{}));
+        this.searchResults = [{
+          title: "anything other than empty string",
+          text: "in the search"
         }, {
-          title: "5"
+          img: "../images/red-sand.jpg",
+          title: "title",
+          text: "Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text"
         }, {
           text: "testing no title"
         }, {
-          text: "testing 4"
+          title: "testing 4th card"
         }];
       }
     }
@@ -552,15 +566,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Search by tag"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.searchQuery]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("search stuff \n            <div class=\"searchStuff\"> \n            "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_ctx.results.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.searchQuery]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("search stuff \n            <div class=\"searchStuff\"> \n            "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_ctx.searchResults.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 0
-  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.results, function (result) {
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.searchResults, function (note) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_card, {
-      key: result.id,
-      img: result.img,
-      title: result.title,
-      text: result.text,
-      alt: result.alt
+      key: note.id,
+      img: note.img,
+      title: note.title,
+      text: note.text,
+      alt: note.alt
     }, null, 8
     /* PROPS */
     , ["img", "title", "text", "alt"]);
