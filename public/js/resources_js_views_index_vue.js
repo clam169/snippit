@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.img ? "/new/snippit" : "/new/note", formData).then(function (response) {
         console.log(response);
 
-        if (response.status === 200) {
+        if (response.status === 200 || response.status === 201) {
           _this.$emit("modalChange", false); // display success toast icon here
 
         } else {

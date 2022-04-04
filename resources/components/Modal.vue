@@ -103,7 +103,7 @@ export default {
                 .post(this.img ? "/new/snippit" : "/new/note", formData)
                 .then((response) => {
                     console.log(response);
-                    if (response.status === 200) {
+                    if (response.status === 200 || response.status === 201) {
                         this.$emit("modalChange", false);
                         // display success toast icon here
                     } else {

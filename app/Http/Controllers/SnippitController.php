@@ -28,16 +28,22 @@ class SnippitController extends Controller
     public function newNote(Request $request)
     {
         $tags = $this->registerTags($request->tags);
-        // Snippit::create([
-        //     'title' => $request['title'],
-        //     'notes' => $request['content']
-        // ]);
 
-        return $tags;
+         $snippit = Snippit::create([
+             'title' => $request['title'],
+             'notes' => $request['content']
+         ]);
+        $snippit->save();
+        $snippit->tags()->attach($tags);
+
+
+        return $snippit;
     }
 
     public function newSnippit(Request $request)
     {
+        $tags = $this->registerTags($request->tags);
+
         $imgPath = '';
         if ($request->image) {
             $imgPath = $request->file('image')->store('/images');
@@ -47,6 +53,8 @@ class SnippitController extends Controller
             'notes' => $request['content'],
             'image_path' => $imgPath
         ]);
+        $snippit->save();
+        $snippit->tags()->attach($tags);
 
         return $snippit;
     }
@@ -60,9 +68,9 @@ class SnippitController extends Controller
                 $exists = Tag::create([
                     'name' => $tag,
                 ]);
-                $registeredTags[]= $exists;
+                $registeredTags[]= $exists->id;
             } else {
-                $registeredTags[]= $exists[0];
+                $registeredTags[]= $exists[0]->id;
             }
         }
 
