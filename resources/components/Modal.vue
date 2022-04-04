@@ -30,7 +30,7 @@
                     name="title"
                     id="title"
                     placeholder="Title"
-                    v-model="inputData"
+                    v-model="title"
                 />
                 <textarea
                     form="snippit-form"
@@ -40,7 +40,7 @@
                     cols="30"
                     rows="5"
                     placeholder="Notes"
-                    v-model="inputData"
+                    v-model="notes"
                 ></textarea>
                 <input
                     class="text-input"
@@ -48,7 +48,7 @@
                     name="tags"
                     id="tags"
                     placeholder="Separate tags by spaces eg. math physics"
-                    v-model="inputData"
+                    v-model="tags"
                 />
                 <div>
                     <button type="button" @click="close" class="close">
@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
     name: "modal",
     props: ["mode", "img"],
@@ -94,15 +95,12 @@ export default {
             } else {
                 formData.append("image", "");
             }
-            formData.append("title", title.value);
-            formData.append("content", notes.value);
-            formData.append("tags", tags.value);
-            const axios = require("axios");
+            formData.set("title", this.title);
+            formData.set("content", this.notes);
+            formData.set("tags", this.tags);
+
             axios
-                .post(this.img ? "/new/snippit" : "/new/note", {
-                    data: formData,
-                    headers: { "Content-Type": "multipart/form-data" },
-                })
+                .post(this.img ? "/new/snippit" : "/new/note", formData)
                 .then((response) => {
                     console.log(response);
                     if (response.status === 200) {

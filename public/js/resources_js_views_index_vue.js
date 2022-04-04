@@ -28,6 +28,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "modal",
   props: ["mode", "img"],
@@ -62,18 +65,10 @@ __webpack_require__.r(__webpack_exports__);
         formData.append("image", "");
       }
 
-      formData.append("title", title.value);
-      formData.append("content", notes.value);
-      formData.append("tags", tags.value);
-
-      var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-
-      axios.post(this.img ? "/new/snippit" : "/new/note", {
-        data: formData,
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      }).then(function (response) {
+      formData.set("title", this.title);
+      formData.set("content", this.notes);
+      formData.set("tags", this.tags);
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.img ? "/new/snippit" : "/new/note", formData).then(function (response) {
         console.log(response);
 
         if (response.status === 200) {
@@ -328,11 +323,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "title",
     placeholder: "Title",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return _ctx.inputData = $event;
+      return $data.title = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.inputData]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.title]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     form: "snippit-form",
     "class": "text-input",
     name: "notes",
@@ -341,22 +336,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     rows: "5",
     placeholder: "Notes",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.inputData = $event;
+      return $data.notes = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.inputData]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.notes]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "text-input",
     type: "text",
     name: "tags",
     id: "tags",
     placeholder: "Separate tags by spaces eg. math physics",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return _ctx.inputData = $event;
+      return $data.tags = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.inputData]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.tags]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     onClick: _cache[3] || (_cache[3] = function () {
       return $options.close && $options.close.apply($options, arguments);

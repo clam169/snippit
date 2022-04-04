@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Snippit;
+use App\Models\Tag;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -26,18 +27,46 @@ class SnippitController extends Controller
      */
     public function newNote(Request $request)
     {
-        
-        return $request['title'];
+        $tags = $this->registerTags($request->tags);
+        // Snippit::create([
+        //     'title' => $request['title'],
+        //     'notes' => $request['content']
+        // ]);
+
+        return $tags;
     }
 
     public function newSnippit(Request $request)
     {
-        Snippit::create([
+        $imgPath = '';
+        if ($request->image) {
+            $imgPath = $request->file('image')->store('/images');
+        }
+        $snippit = Snippit::create([
             'title' => $request['title'],
-            
+            'notes' => $request['content'],
+            'image_path' => $imgPath
         ]);
 
-        return $request['image'];
+        return $snippit;
+    }
+
+    public function registerTags($tags) {
+        $explodedTags = explode(' ', $tags);
+        $registeredTags = [];
+        foreach ($explodedTags as $tag) {
+            $exists = Tag::where('name', $tag)->get();
+            if (count($exists) === 0) {
+                $exists = Tag::create([
+                    'name' => $tag,
+                ]);
+                $registeredTags[]= $exists;
+            } else {
+                $registeredTags[]= $exists[0];
+            }
+        }
+
+        return $registeredTags;
     }
 
     /**
