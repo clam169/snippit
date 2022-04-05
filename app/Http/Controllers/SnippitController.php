@@ -17,7 +17,7 @@ class SnippitController extends Controller
     public function index(): JsonResponse
     {
         $snippits = Snippit::all();
-        return response()->json(['message'=>null,'data'=>$snippits],200);
+        return response()->json(['data'=>$snippits],200);
     }
 
     /**
