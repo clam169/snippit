@@ -1,6 +1,6 @@
 <template>
     <article class='note-card'>
-        <div v-if="img == 'null'" class='content'>
+        <div v-if="img === null" class='content'>
                 <h2> {{ title }} </h2>
                 <p class='note-text'> {{ text }} </p>
                 <div>
@@ -49,7 +49,6 @@
     }
 
     .img-content {
-        padding: 1em 1em;
         text-align: left;
     }
 
@@ -57,11 +56,13 @@
         width: 20.5em;
         height: 20.5em;
         margin: 1em;
-        border-color: white;
-        border-style: solid;
+        border: white 1px solid;
         border-radius: 15px;
         word-wrap: break-word;
         overflow-x: scroll;
+        display: block;
+        flex-direction: unset;
+        padding: 1rem;
     }
 
     .img-text {
@@ -69,7 +70,7 @@
     }
 
     .note-text {
-        height: 50%;
+        height: 100%;
     }
 
     .note-card h2 {

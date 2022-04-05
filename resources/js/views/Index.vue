@@ -85,6 +85,11 @@ export default {
     mounted() {
         this.getAllNotes();
     },
+    updated() {
+        // if (this.searchResults.length < 1) {
+        //     this.getAllNotes();
+        // }
+    },
     watch: {
         searchQuery(after) {
             this.search(after);

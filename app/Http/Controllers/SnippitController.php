@@ -23,7 +23,7 @@ class SnippitController extends Controller
         } else {
             $snippits = Snippit::whereHas('tags', function($q) use ($query) {
                 $q->where('name', 'LIKE', '%'.$query.'%');
-            })->get();
+            })->with('tags')->get();
             return response()->json(['data'=>$snippits],200);
         }
 

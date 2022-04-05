@@ -136,8 +136,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     onClick: function onClick(e) {
       if (this.id === "note") this.$emit("modalChange", "note");
-    },
-    submitNewSnippit: function submitNewSnippit() {// POST /new-snippit
     }
   }
 });
@@ -178,6 +176,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getAllNotes();
+  },
+  updated: function updated() {// if (this.searchResults.length < 1) {
+    //     this.getAllNotes();
+    // }
   },
   watch: {
     searchQuery: function searchQuery(after) {
@@ -261,7 +263,7 @@ var _hoisted_9 = {
   "class": "tag"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("article", _hoisted_1, [$props.img == 'null' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("article", _hoisted_1, [$props.img === null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
   /* TEXT */
@@ -612,7 +614,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card img {\n        min-width: auto;\n        margin: 0 auto;\n        height: 10rem;\n        border-top-right-radius: 15px;\n        border-top-left-radius: 15px;\n}\n.img-content {\n        padding: 1em 1em;\n        text-align: left;\n}\n.note-card {\n        width: 20.5em;\n        height: 20.5em;\n        margin: 1em;\n        border-color: white;\n        border-style: solid;\n        border-radius: 15px;\n        word-wrap: break-word;\n        overflow-x: scroll;\n}\n.img-text {\n        height: 30%;\n}\n.note-text {\n        height: 50%;\n}\n.note-card h2 {\n        margin-top: 1em;\n}\n.content {\n        width: 100%;\n       display: flex;\n        flex-direction: column;\n}\n.text {\n        height: 80%;\n}\n.tag {\n        color: black;\n        display: inline-block;\n        background-color: slateblue;\n        padding: 0.2rem;\n        border-radius: 3px;\n        margin: 1.4rem 8px 0 0;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card img {\n        min-width: auto;\n        margin: 0 auto;\n        height: 10rem;\n        border-top-right-radius: 15px;\n        border-top-left-radius: 15px;\n}\n.img-content {\n        text-align: left;\n}\n.note-card {\n        width: 20.5em;\n        height: 20.5em;\n        margin: 1em;\n        border: white 1px solid;\n        border-radius: 15px;\n        word-wrap: break-word;\n        overflow-x: scroll;\n        display: block;\n        flex-direction: unset;\n        padding: 1rem;\n}\n.img-text {\n        height: 30%;\n}\n.note-text {\n        height: 100%;\n}\n.note-card h2 {\n        margin-top: 1em;\n}\n.content {\n        width: 100%;\n       display: flex;\n        flex-direction: column;\n}\n.text {\n        height: 80%;\n}\n.tag {\n        color: black;\n        display: inline-block;\n        background-color: slateblue;\n        padding: 0.2rem;\n        border-radius: 3px;\n        margin: 1.4rem 8px 0 0;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
