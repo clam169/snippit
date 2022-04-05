@@ -13,7 +13,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'card',
-  props: ['img', 'title', 'alt', 'text']
+  props: ['img', 'title', 'alt', 'text', 'tags'],
+  methods: {
+    getImg: function getImg() {
+      // return default if image is null
+      var photo = this.img == null ? "" : "storage/".concat(this.img);
+      return photo;
+    }
+  }
 });
 
 /***/ }),
@@ -236,45 +243,50 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "note-text"
 };
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  id: "tag"
-}, "Test", -1
-/* HOISTED */
-);
-
-var _hoisted_5 = {
-  key: 1
+var _hoisted_4 = {
+  "class": "tag"
 };
-var _hoisted_6 = ["src", "alt"];
+var _hoisted_5 = {
+  key: 1,
+  "class": "content"
+};
+var _hoisted_6 = ["src"];
 var _hoisted_7 = {
   "class": "img-content"
 };
 var _hoisted_8 = {
   "class": "img-text"
 };
-
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  id: "tag"
-}, "Test", -1
-/* HOISTED */
-);
-
+var _hoisted_9 = {
+  "class": "tag"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("article", _hoisted_1, [$props.img == 'null' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
   /* TEXT */
-  ), _hoisted_4])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $props.img,
-    alt: $props.alt
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.tags, function (tag) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(tag.name), 1
+    /* TEXT */
+    );
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    "class": "img",
+    src: $options.getImg($props.img)
   }, null, 8
   /* PROPS */
   , _hoisted_6), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
   /* TEXT */
-  ), _hoisted_9])]))]);
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.tags, function (tag) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(tag.name), 1
+    /* TEXT */
+    );
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))])])]))]);
 }
 
 /***/ }),
@@ -557,13 +569,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.searchResults, function (note) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_card, {
       key: note.id,
-      img: note.img,
+      img: note.image,
       title: note.title,
-      text: note.text,
-      alt: note.alt
+      text: note.notes,
+      alt: note.alt,
+      tags: note.tags
     }, null, 8
     /* PROPS */
-    , ["img", "title", "text", "alt"]);
+    , ["img", "title", "text", "alt", "tags"]);
   }), 128
   /* KEYED_FRAGMENT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <card img=\"../images/red-sand.jpg\" title=\"Red Desert\" alt=\"Red Desert Landscape\" text=\"Where I want to travel...\" />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <card img=\"null\" title=\"Midterm Structure\" text=\"Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text.\" />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <card img=\"null\" title=\"Midterm Structure\" text=\"C#\" />")]), _ctx.isModal === 'snippit' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
@@ -599,7 +612,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card img {\n        min-width: 100%;\n        height: 10em;\n        border-top-right-radius: 15px;\n        border-top-left-radius: 15px;\n}\n.img-content {\n        padding: 0 1em 1em 1em;\n}\n.note-card {\n        width: 20.5em;\n        height: 20.5em;\n        margin: 1em;\n        border-color: white;\n        border-style: solid;\n        border-radius: 15px;\n        word-wrap: break-word;\n        overflow-x: scroll;\n}\n.img-text {\n        height: 30%;\n}\n.note-text {\n        height: 50%;\n}\n.note-card h2 {\n        margin-top: 1em;\n}\n.content {\n        width: 80%;\n}\n.text {\n        height: 80%;\n}\n#tag {\n        color: black;\n        display: inline-block;\n        background-color: orangered;\n        padding: 0.2rem;\n        border-radius: 3px;\n}\n    \n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.note-card img {\n        min-width: auto;\n        margin: 0 auto;\n        height: 10rem;\n        border-top-right-radius: 15px;\n        border-top-left-radius: 15px;\n}\n.img-content {\n        padding: 1em 1em;\n        text-align: left;\n}\n.note-card {\n        width: 20.5em;\n        height: 20.5em;\n        margin: 1em;\n        border-color: white;\n        border-style: solid;\n        border-radius: 15px;\n        word-wrap: break-word;\n        overflow-x: scroll;\n}\n.img-text {\n        height: 30%;\n}\n.note-text {\n        height: 50%;\n}\n.note-card h2 {\n        margin-top: 1em;\n}\n.content {\n        width: 100%;\n       display: flex;\n        flex-direction: column;\n}\n.text {\n        height: 80%;\n}\n.tag {\n        color: black;\n        display: inline-block;\n        background-color: slateblue;\n        padding: 0.2rem;\n        border-radius: 3px;\n        margin: 1.4rem 8px 0 0;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -668,7 +681,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container {\n    width: 80%;\n}\n.nav-container {\n    text-align: right;\n}\n.nav-container img {\n    width: 1.5em;\n    margin: 1em;\n}\n.header-container {\n    display: flex;\n    justify-content: center;\n    margin-top: 2em;\n}\n.main-container {\n    display: flex;\n    flex-direction: column;\n}\n.searchInput{\n    background-color: #232323;\n    padding: .65rem;\n    border: 1px lightgray solid;\n    border-radius: 25px;\n    width: 250px;\n}\n.cards-container {\n    margin-top: 2rem;\n    width: 100%;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container {\n    width: 100%;\n}\n.nav-container {\n    text-align: right;\n}\n.nav-container img {\n    width: 1.5em;\n    margin: 1em;\n}\n.header-container {\n    display: flex;\n    justify-content: center;\n    margin-top: 2em;\n    margin: 0 auto;\n    width: 100%;\n}\n.main-container {\n    display: flex;\n    flex-direction: column;\n}\n.search-container{\n    margin: 0 auto;\n}\n.searchInput{\n    background-color: #232323;\n    padding: .65rem;\n    border: 1px lightgray solid;\n    border-radius: 25px;\n    width: 250px;\n    margin: 0 auto;\n}\n.cards-container {\n    margin-top: 2rem;\n    width: 100%;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -41,10 +41,11 @@
                 <template v-if="searchResults.length > 0">
                     <template v-for="note in searchResults" :key="note.id">
                         <card
-                            :img="note.img"
+                            :img='note.image'
                             :title="note.title"
-                            :text="note.text"
+                            :text="note.notes"
                             :alt="note.alt"
+                            :tags="note.tags"
                         />
                     </template>
                 </template>
@@ -130,7 +131,7 @@ export default {
 
 <style>
 .container {
-    width: 80%;
+    width: 100%;
 }
 
 .nav-container {
@@ -146,11 +147,17 @@ export default {
     display: flex;
     justify-content: center;
     margin-top: 2em;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .main-container {
     display: flex;
     flex-direction: column;
+}
+
+.search-container{
+    margin: 0 auto;
 }
 
 .searchInput{
@@ -159,6 +166,7 @@ export default {
     border: 1px lightgray solid;
     border-radius: 25px;
     width: 250px;
+    margin: 0 auto;
 }
 
 .cards-container {

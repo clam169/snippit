@@ -55,12 +55,12 @@ class SnippitController extends Controller
 
         $imgPath = '';
         if ($request->image) {
-            $imgPath = $request->file('image')->store('/images');
+            $imgPath = $request->file('image')->store('images', 'public');
         }
         $snippit = Snippit::create([
             'title' => $request['title'],
             'notes' => $request['content'],
-            'image_path' => $imgPath
+            'image' => $imgPath
         ]);
         $snippit->save();
         $snippit->tags()->attach($tags);

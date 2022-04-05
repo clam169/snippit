@@ -3,14 +3,18 @@
         <div v-if="img == 'null'" class='content'>
                 <h2> {{ title }} </h2>
                 <p class='note-text'> {{ text }} </p>
-                <p id='tag'>Test</p>
+                <div>
+                    <p  v-for="tag in tags" class='tag'>{{tag.name}}</p>
+                </div>
         </div>
-        <div v-else>
-            <img v-bind:src="img" v-bind:alt="alt" />
+        <div v-else class="content">
+            <img class="img" :src="getImg(img)" />
             <div class='img-content'>
                 <h2> {{ title }} </h2>
                 <p class='img-text'> {{ text }} </p>
-                <p id='tag'>Test</p>
+                <div>
+                    <p  v-for="tag in tags" class='tag'>{{tag.name}}</p>
+                </div>
             </div>
         </div>
     </article>
@@ -24,20 +28,29 @@
             'title',
             'alt',
             'text',
-        ]
+            'tags'
+        ],
+        methods: {
+            getImg() { // return default if image is null
+                var photo = (this.img == null) ? "" : `storage/${this.img}`
+                return photo
+            },
+        },
     }
 </script>
 
 <style>
     .note-card img {
-        min-width: 100%;
-        height: 10em;
+        min-width: auto;
+        margin: 0 auto;
+        height: 10rem;
         border-top-right-radius: 15px;
         border-top-left-radius: 15px;
     }
 
     .img-content {
-        padding: 0 1em 1em 1em;
+        padding: 1em 1em;
+        text-align: left;
     }
 
     .note-card {
@@ -64,20 +77,23 @@
     }
 
     .content {
-        width: 80%;
+        width: 100%;
+       display: flex;
+        flex-direction: column;
     }
 
     .text {
         height: 80%;
     }
 
-    #tag {
+    .tag {
         color: black;
         display: inline-block;
-        background-color: orangered;
+        background-color: slateblue;
         padding: 0.2rem;
         border-radius: 3px;
+        margin: 1.4rem 8px 0 0;
     }
-    
+
 
 </style>
