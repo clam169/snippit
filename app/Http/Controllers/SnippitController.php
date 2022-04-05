@@ -14,10 +14,19 @@ class SnippitController extends Controller
      *
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $snippits = Snippit::all();
-        return response()->json(['data'=>$snippits],200);
+        $query = $request->query("query");
+        if ($query === null) {
+            $snippits = Snippit::with('tags')->get();
+            return response()->json(['data'=>$snippits],200);
+        } else {
+            $snippits = Snippit::whereHas('tags', function($q) use ($query) {
+                $q->where('name', 'LIKE', '%'.$query.'%');
+            })->get();
+            return response()->json(['data'=>$snippits],200);
+        }
+
     }
 
     /**

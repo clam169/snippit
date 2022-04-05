@@ -29,9 +29,29 @@
             />
         </header>
         <main class="main-container">
-            <card img="../images/red-sand.jpg" title="Red Desert" alt="Red Desert Landscape" text="Where I want to travel..." />
-            <card img="null" title="Midterm Structure" text="Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text." />
-            <card img="null" title="Midterm Structure" text="C#" />
+            <div class="search-container">
+                <input
+                    type="text"
+                    v-model="searchQuery"
+                    placeholder="Search by tag"
+                    class="searchInput"
+                />
+            </div>
+            <div class="cards-container">
+                <template v-if="searchResults.length > 0">
+                    <template v-for="note in searchResults" :key="note.id">
+                        <card
+                            :img="note.img"
+                            :title="note.title"
+                            :text="note.text"
+                            :alt="note.alt"
+                        />
+                    </template>
+                </template>
+            </div>
+<!--            <card img="../images/red-sand.jpg" title="Red Desert" alt="Red Desert Landscape" text="Where I want to travel..." />-->
+<!--            <card img="null" title="Midterm Structure" text="Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text. Testing when to trim the text." />-->
+<!--            <card img="null" title="Midterm Structure" text="C#" />-->
         </main>
         <div v-if="isModal === 'snippit'">
             <modal mode="snippit" @modalChange="modalChange" :img="imgFile" />
@@ -52,11 +72,22 @@ export default {
     data: () => ({
         isModal: false,
         imgFile: null,
+        searchQuery: null,
+        allNotes: [],
+        searchResults: [],
     }),
     components: {
         newSnippit,
         card,
         modal,
+    },
+    mounted() {
+        this.getAllNotes();
+    },
+    watch: {
+        searchQuery(after) {
+            this.search(after);
+        },
     },
     methods: {
         modalChange(value) {
@@ -64,6 +95,32 @@ export default {
         },
         handleImg(img) {
             this.imgFile = img;
+        },
+        getAllNotes() {
+            axios
+                .get("/snippit")
+                .then((response) => {
+                    console.log(response);
+                    this.searchResults = response.data.data;
+                    this.allNotes = response.data.data;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+        search(searchQuery) {
+            //test to see if "search results" will refresh
+            if (searchQuery === "") {
+                this.searchResults = this.allNotes;
+            } else {
+                //make search request with axios when database is ready
+                axios.get(`/snippit/?query=${searchQuery}`)
+                    .then(response => {
+                        console.log(response)
+                        this.searchResults = response.data.data;
+                    })
+                    .catch(error=>{});
+            }
         },
     },
 };
@@ -93,6 +150,22 @@ export default {
 
 .main-container {
     display: flex;
+    flex-direction: column;
+}
+
+.searchInput{
+    background-color: #232323;
+    padding: .65rem;
+    border: 1px lightgray solid;
+    border-radius: 25px;
+    width: 250px;
+}
+
+.cards-container {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 </style>
